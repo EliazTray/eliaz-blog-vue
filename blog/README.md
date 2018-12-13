@@ -31,6 +31,7 @@ description: RoadMap
 - [ ] live preview. the `vue component` can run in the Post with editing the code in real time
 - [ ] [quicklink](https://github.com/GoogleChromeLabs/quicklink)
 - [ ] [code-surfer](https://github.com/pomber/code-surfer). it looks cool!
+- [ ] [scroll-reveal](https://scrollrevealjs.org/api/defaults.html) for the homepage.
 
 ### UI improvement
 
