@@ -3,8 +3,6 @@ home: true
 description: RoadMap
 ---
 
-[[toc]]
-
 # RoadMap
 
 [Theme Search](https://github.com/search?q=vuepress+theme)
@@ -29,17 +27,16 @@ description: RoadMap
 - [ ] frontMatter generator. Auto generate author, title, tags, categories.
 - [x] content loader for loading iframe resource. [see detail](/#iframe-loader)
 - [ ] live preview. the `vue component` can run in the Post with editing the code in real time
-- [ ] [quicklink](https://github.com/GoogleChromeLabs/quicklink)
+- [x] [quicklink](https://github.com/GoogleChromeLabs/quicklink)
 - [ ] [code-surfer](https://github.com/pomber/code-surfer). it looks cool!
-- [ ] [scroll-reveal](https://scrollrevealjs.org/api/defaults.html) for the homepage.
+- [x] [scroll-reveal](https://scrollrevealjs.org/api/defaults.html) for the homepage.
 
 ### UI improvement
 
 - [ ] The categories list on the pageTop could be made as the magic sidebar in Mac.
 - [ ] 阅读书籍的翻页效果
-- [ ] scrollbar improvement. [smooth-scrollbar](https://github.com/idiotWu/smooth-scrollbar), [more](https://github.com/EliazTray?tab=stars&utf8=%E2%9C%93&q=scroll)
+- [x] scrollbar improvement. [smooth-scrollbar](https://github.com/idiotWu/smooth-scrollbar), [more](https://github.com/EliazTray?tab=stars&utf8=%E2%9C%93&q=scroll)
 - [ ] [https://codepen.io/joshuaward/pen/aQXLPa](https://codepen.io/joshuaward/pen/aQXLPa)
-- [ ] iframe loader 加载完 iframe，当出现在视窗时会抖动，不知道什么原因?
 - [ ] code-surfer with fullscreen! thats sounds wonderful~~:)
 
 #### Post description

@@ -1,3 +1,4 @@
+const {path, logger} = require('@vuepress/shared-utils')
 module.exports = (options, ctx) => {
   return {
     // Add description
@@ -21,6 +22,16 @@ module.exports = (options, ctx) => {
           frontmatter.readTime = Math.ceil(pageSize / 300)
         }
       }
+    },
+    extendCli(cli) {
+      cli
+        .command('info [targetDir]', '')
+        .option('--debug', 'display info in debug mode')
+        .action((dir = '.', options) => {
+          logger.success('Display info of your website')
+          logger.tip(dir)
+          logger.tip(options)
+        })
     }
   }
 }
