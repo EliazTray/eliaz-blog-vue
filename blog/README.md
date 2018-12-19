@@ -24,7 +24,7 @@ description: RoadMap
 
 - [x] post description. if provide `frontmatter.desciption`, it will be used. else extract the 60 words of Post as description. [see detail](/#post-description)
 - [x] pageSize & readTime of per Post.
-- [ ] frontMatter generator. Auto generate author, title, tags, categories.
+- [x] frontMatter generator. Auto generate author, title, tags, categories.
 - [x] content loader for loading iframe resource. [see detail](/#iframe-loader)
 - [ ] live preview. the `vue component` can run in the Post with editing the code in real time
 - [x] [quicklink](https://github.com/GoogleChromeLabs/quicklink)
