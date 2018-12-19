@@ -61,6 +61,9 @@ export default {
     })
 
     this.registerSmoothScroll()
+    this.$scrollReveal.reveal('.post-content', {
+      reset: true
+    })
   },
 
   beforeDestroy() {

@@ -1,3 +1,5 @@
+const generatePost = require('./generate_post')
+
 module.exports = (options, ctx) => {
   return {
     // Add description
@@ -21,6 +23,16 @@ module.exports = (options, ctx) => {
           frontmatter.readTime = Math.ceil(pageSize / 300)
         }
       }
+    },
+    // Link: https: //github.com/cacjs/cac by egoist(cool)
+    extendCli(cli) {
+      cli
+        .command('post <targetDir>', 'create post(.md, .vue, .html) with default frontmatter')
+        .option('-f, --filepath <filepath>', 'specify the file base on <targetDir>')
+        .action((targetDir, options) => {
+          const filepath = options.f
+          generatePost(targetDir, filepath)
+        })
     }
   }
 }

@@ -1,4 +1,5 @@
 import {ContentLoader} from 'vue-content-loader'
+import scrollReveal from 'scrollreveal'
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
   options, // 附加到根实例的一些选项
@@ -7,4 +8,5 @@ export default ({
 }) => {
   // TODO: ...做一些其他的应用级别的优化
   Vue.component(ContentLoader.name, ContentLoader)
+  Vue.prototype.$scrollReveal = scrollReveal()
 }
