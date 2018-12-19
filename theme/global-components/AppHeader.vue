@@ -13,6 +13,10 @@
         <!-- => <a style="color:red;" v-for="(post, index) in value.posts" :key="index" :href="post.path">{{post.title}}</a> -->
       </li>
     </ul>
+    <AlgoliaSearchBox
+      v-if="isAlgoliaSearch"
+      :options="algolia">
+    </AlgoliaSearchBox>
     <div v-else>
       default category bar
     </div>
@@ -20,11 +24,21 @@
 </template>
 
 <script>
+import AlgoliaSearchBox from '@parent-theme/components/AlgoliaSearchBox.vue'
 import get from 'lodash-es/get'
 export default {
   name: 'AppHeader',
-  watch: {
+  components: {
+    AlgoliaSearchBox
+  },
+  computed: {
+    algolia() {
+      return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+    },
 
+    isAlgoliaSearch() {
+      return this.algolia && this.algolia.apiKey && this.algolia.indexName
+    }
   }
 }
 </script>
