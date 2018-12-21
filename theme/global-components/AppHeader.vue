@@ -24,12 +24,10 @@
 </template>
 
 <script>
-import AlgoliaSearchBox from '@parent-theme/components/AlgoliaSearchBox.vue'
 import get from 'lodash-es/get'
 export default {
   name: 'AppHeader',
   components: {
-    AlgoliaSearchBox
   },
   computed: {
     algolia() {
