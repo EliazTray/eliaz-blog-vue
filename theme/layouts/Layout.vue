@@ -61,9 +61,7 @@ export default {
     })
 
     this.registerSmoothScroll()
-    this.$scrollReveal.reveal('.post-content', {
-      reset: true
-    })
+    this.registerScrollReveal()
   },
 
   beforeDestroy() {
@@ -122,6 +120,19 @@ export default {
     removeSmoothScroll() {
       if (this._scrollbar && this._scroll) {
         this._scrollbar.destroy(this._scroll)
+      }
+    },
+    // 增加 scrollReveal
+    async registerScrollReveal() {
+      try {
+        import('scrollreveal').then(res => {
+          const ScrollReveal = res.default
+          new ScrollReveal().reveal('.post-content', {
+            reset: true
+          })
+        })
+      } catch (error) {
+        console.error(error)
       }
     }
   },
