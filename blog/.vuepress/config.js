@@ -17,7 +17,11 @@ module.exports = ctx => ({
     algolia: {
       appId: '0VBNLFZN6R',
       apiKey: '7961ff9ab102aebd35a29d80c37a6802',
-      indexName: 'lunariours_blog'
+      indexName: 'lunariours_blog',
+      /* eslint camelcase: 0 */
+      algoliaOptions: {
+        facetFilters: []
+      }
     }
   }
 })
