@@ -24,6 +24,8 @@
         </ul> -->
       </nav>
       <Content class="post-content" />
+      <!-- comments component-->
+      <comments />
     </div>
   </Layout>
 </template>

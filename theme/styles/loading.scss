@@ -1,0 +1,44 @@
+$primary-color: #f8c555;
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(0.6);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.ball-clip-rotate-multiple {
+  position: relative;
+
+  > div {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 35px;
+    height: 35px;
+    border: 2px solid $primary-color;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    animation: rotate 1s 0s ease-in-out infinite;
+    animation-fill-mode: both;
+    border-radius: 100%;
+
+    &:last-child {
+      top: -10px;
+      left: -10px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-color: $primary-color transparent $primary-color transparent;
+      animation-direction: reverse;
+      animation-duration: 0.5s;
+    }
+  }
+}

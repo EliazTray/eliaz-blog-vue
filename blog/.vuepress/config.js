@@ -3,7 +3,12 @@ module.exports = ctx => ({
   dest: 'dist',
   theme: 'theme/index.js',
   plugins: {
-    'plugin/index.js': true
+    'plugin/words/word.js': true,
+    'plugin/disqus/disqus.js': {
+      disqus_config: {
+        shortname: 'eliaztray'
+      }
+    }
   },
   locales: {
     '/': {
