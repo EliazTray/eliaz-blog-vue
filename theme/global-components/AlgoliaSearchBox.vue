@@ -77,7 +77,7 @@ $tl: 0.6s;
   width: 40px;
   height: 40px;
   border: none;
-  background: rgba(107, 183, 86, 0.95);
+  background: transparent;
   border-radius: 20px;
   cursor: pointer;
   transition: width $tl, border-radius $tl, background $tl, box-shadow $tl;
