@@ -1,9 +1,14 @@
 module.exports = ctx => ({
   title: 'Lunariours',
   dest: 'dist',
+  head: [
+    ['link', {rel: 'icon', href: '/logo.png'}],
+    ['link', {res: 'manifest', href: '/manifest.json'}]
+  ],
   theme: 'theme/index.js',
   plugins: {
     'plugin/words/word.js': true,
+    // 评论配置
     'plugin/disqus/disqus.js': {
       disqus_config: {
         shortname: 'eliaztray'

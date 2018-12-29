@@ -19,6 +19,8 @@
             <Content v-else-if="$page.key" :page-key="$page.key"></Content>
           </slot>
           <!-- back-to-top -->
+          <!-- 底部 -->
+          <AppFooter v-if="true"/>
       </div>
     </div>
   </div>
