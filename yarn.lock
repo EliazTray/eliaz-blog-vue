@@ -1045,7 +1045,7 @@
   dependencies:
     lodash.throttle "^4.1.1"
 
-"@vuepress/plugin-blog@^1.0.0-alpha.30":
+"@vuepress/plugin-blog@^1.0.0-alpha.29":
   version "1.0.0-alpha.30"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-blog/-/plugin-blog-1.0.0-alpha.30.tgz#f9973ead85d3b2e8b29ec4d64c8ad1faf13538b8"
   integrity sha512-1kZmF1/E26bwy0GeG2IV7yRY7Az47NakDJLyER+4Bd5bC5DEulZaMskLlu5aLPzEwzpKJkxf8ZhcpDC8BEmm4Q==
@@ -1057,14 +1057,14 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@vuepress/plugin-medium-zoom@^1.0.0-alpha.30":
+"@vuepress/plugin-medium-zoom@^1.0.0-alpha.29":
   version "1.0.0-alpha.30"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-medium-zoom/-/plugin-medium-zoom-1.0.0-alpha.30.tgz#b72c6d488d3429be1d4c88b3cbbe5335e62acac0"
   integrity sha512-chNsKbmWe/AHciFnN8Qd2S/8DoRayjqg98xkT22qaN4y6WEWT8SZKHX5LpLV1DKw2S74FR4RGOEPQUwN/FjCjg==
   dependencies:
     medium-zoom "^0.4.0"
 
-"@vuepress/plugin-pwa@^1.0.0-alpha.30":
+"@vuepress/plugin-pwa@^1.0.0-alpha.29":
   version "1.0.0-alpha.30"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.0.0-alpha.30.tgz#c073d0e0a3d4cfc31c5d7fe2291762ab6c22f26f"
   integrity sha512-GpFtVNxIqO9tN5JR6e2Mn9Xzxp/FWjItn71BDLV3+kkj4JNX5stqRq78s0AvLJJ8Yta4+Z1O6HkhF/tY9fUAmQ==
@@ -1073,7 +1073,7 @@
     register-service-worker "^1.5.2"
     workbox-build "^3.1.0"
 
-"@vuepress/plugin-register-components@^1.0.0-alpha.30":
+"@vuepress/plugin-register-components@^1.0.0-alpha.29", "@vuepress/plugin-register-components@^1.0.0-alpha.30":
   version "1.0.0-alpha.30"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-1.0.0-alpha.30.tgz#2fa108dad68092394c6991be22da350da515215e"
   integrity sha512-yYkG11vYXpCHdzw7JILqnF4XYY0/I7CgEE83Jp7oi/OC5vhrm2228It/pSUqdhRd2MAEpwOEbj2uhakYWSz7CA==
@@ -10023,6 +10023,11 @@ vuepress-html-webpack-plugin@^3.2.0:
     tapable "^1.0.0"
     toposort "^1.0.0"
     util.promisify "1.0.0"
+
+vuepress-plugin-demo-block@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-demo-block/-/vuepress-plugin-demo-block-0.3.4.tgz#8e4a88bdac1f9d29a56701a1ed1711045ec14945"
+  integrity sha512-X6+N+CPruZsjy4/7jwB7EAhzLl1yvbcl3X0SX6jKj8SRDiE/VfqZOpPFoRFGwBhyEYuijo8Bb8Dn6Du5W3MbKw==
 
 vuepress@^1.0.0-alpha.30:
   version "1.0.0-alpha.30"

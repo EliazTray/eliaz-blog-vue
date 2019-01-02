@@ -13,7 +13,8 @@ module.exports = ctx => ({
       disqus_config: {
         shortname: 'eliaztray'
       }
-    }
+    },
+    'demo-block': true
   },
   locales: {
     '/': {
