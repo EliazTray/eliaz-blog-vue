@@ -54,7 +54,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.17",
-    "vuepress": "^1.0.0-alpha.29"
+    "vuepress": "^1.0.0-alpha.30"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",

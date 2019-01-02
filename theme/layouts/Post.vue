@@ -2,11 +2,17 @@
   <Layout>
     <div class="custom-page-post">
       <nav class="breadcrumbs">
-        <div class="page-size">
+        <div class="page-meta">
           <span>文章字数约:</span>
           <span>{{$frontmatter.pageSize}} words</span>
           <span class="page-pre">预计阅读:</span>
           <span>{{$frontmatter.readTime}} min</span>
+        </div>
+        <div class="page-meta">
+          <span>文章创建于:</span>
+          <span>{{getCreateTime(cur)}}</span>
+          <span class="page-pre">最后修改:</span>
+          <span>{{getModifyTime(cur)}}</span>
         </div>
         <ul class="rec-list is-category" v-if="categoryList.length">
           <li class="item" v-for="(category, index) in categoryList" :key="index">
@@ -24,6 +30,12 @@
         </ul> -->
       </nav>
       <Content class="post-content" />
+      <!-- prev & next -->
+      <div class="post-nav" v-if="prev || next">
+        <!-- TODO: add tooltip & animation -->
+        <div class="post-prev" v-if="prev"><a :href="prev.path">{{prev.title || prev.path}}</a></div>
+        <div class="post-next" v-if="next"><a :href="next.path">{{next.title || next.path}}</a></div>
+      </div>
       <!-- comments component-->
       <comments />
     </div>
@@ -32,6 +44,8 @@
 
 <script>
 import get from 'lodash-es/get'
+import dayjs from 'dayjs'
+const FORMAT_TEMPLATE = 'YYYY-MM-DD hh:mm:ss'
 export default {
   name: 'Post',
   filters: {
@@ -39,12 +53,40 @@ export default {
       return value.toUpperCase().replace('.', '')
     }
   },
+  methods: {
+    resolvePost(path, offset) {
+
+    },
+    resolvePrev(path) {
+      return this.find(path, -1)
+    },
+    resolveNext(path) {
+      return this.find(path, 1)
+    },
+    //
+    find(path, offset) {
+      return this.postFilter[this.postFilter.findIndex(post => post.path === decodeURIComponent(path)) + offset]
+    },
+    // Get time format with `FORMAT_TEMPLATE`
+    getCreateTime(post) {
+      return dayjs(get(post.frontmatter, 'date', this.getModifyTime(post))).format(FORMAT_TEMPLATE)
+    },
+    getModifyTime(post) {
+      return dayjs(get(post, 'lastUpdated', dayjs())).format(FORMAT_TEMPLATE)
+    },
+    // 按创建的最新时间排列
+    sortByTime(a, b) {
+      const aTime = dayjs(this.getCreateTime(a)).valueOf()
+      const bTime = dayjs(this.getCreateTime(b)).valueOf()
+      return bTime - aTime
+    }
+  },
   computed: {
     categoryList() {
       return Object.entries(this.$categories._metaMap).reduce((result, item) => {
         const key = item[0]
         let value = get(item[1], 'posts')
-        if (value.find(post => post.path === this.$route.path)) {
+        if (value.find(post => post.path === decodeURIComponent(this.$page.path))) {
           result.push({
             key,
             path: get(item[1], 'path')
@@ -57,7 +99,7 @@ export default {
       return Object.entries(this.$tags._metaMap).reduce((result, item) => {
         const key = item[0]
         let value = get(item[1], 'posts')
-        if (value.find(post => post.path === this.$route.path)) {
+        if (value.find(post => post.path === decodeURIComponent(this.$page.path))) {
           result.push({
             key,
             path: get(item[1], 'path')
@@ -65,20 +107,50 @@ export default {
         }
         return result
       }, [])
+    },
+    postFilter() {
+      return get(this.$site, 'pages', []).filter(page => page.type === 'post').sort(this.sortByTime)
+    },
+    next() {
+      const next = this.$frontmatter.next
+      if (next === false) {
+        return undefined
+      }
+      if (next) {
+        // TODO:
+        return undefined
+      }
+      return this.resolveNext(this.$page.path)
+    },
+    prev() {
+      const prev = this.$frontmatter.prev
+      if (prev === false) {
+        return undefined
+      }
+      if (prev) {
+        // TODO:
+        return undefined
+      }
+      return this.resolvePrev(this.$page.path)
+    },
+    cur() {
+      return this.postFilter.find(item => item.path === decodeURIComponent(this.$page.path))
     }
   }
 }
+
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css">
 </style>
-<style lang="stylus" src="@parent-theme/styles/theme.styl">
-</style>
+
 <style lang="scss">
 @import '../styles/theme.scss';
 </style>
 
 <style lang="scss">
+@import '../styles/mixin.scss';
+
 .breadcrumbs {
   padding: 0 10px;
   margin-left: 50%;
@@ -115,7 +187,7 @@ export default {
   }
 }
 
-.page-size {
+.page-meta {
   padding: 6px 0;
   color: #3eaf7c;
   font-size: 0.8rem;
@@ -127,6 +199,24 @@ export default {
   .page-pre {
     margin-left: 10px;
   }
+}
+
+.post-nav {
+  overflow: hidden;
+  max-width: 740px;
+  padding: 1rem 0;
+  margin: 0 auto;
+}
+
+.post-prev {
+  @include textOverFlow();
+
+  max-width: 200px;
+  float: left;
+}
+
+.post-next {
+  float: right;
 }
 </style>
 
