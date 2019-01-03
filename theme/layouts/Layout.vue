@@ -18,8 +18,8 @@
             <Post v-else-if="$page.key" :page-key="$page.key"></Post>
           </slot>
           <!-- back-to-top -->
-          <PostNav v-if="true"></PostNav>
-          <Comments v-if="true"></Comments>
+          <PostNav v-if="isArticle"></PostNav>
+          <Comments v-if="isArticle"></Comments>
           <!-- 底部 -->
           <AppFooter v-if="true"/>
       </div>
@@ -55,7 +55,11 @@ export default {
     },
     disableScrollBehavior() {
       return this.$vuepress.$get('disableScrollBehavior')
+    },
+    isArticle() {
+      return ['post', 'page'].includes(this.$page.type) && !this.$frontmatter.home
     }
+
   },
   data() {
     return {

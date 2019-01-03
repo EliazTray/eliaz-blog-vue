@@ -51,9 +51,6 @@ export default {
         return undefined
       }
       return this.resolvePrev(this.$page.path)
-    },
-    cur() {
-      return this.postFilter.find(item => item.path === decodeURIComponent(this.$page.path))
     }
   }
 }

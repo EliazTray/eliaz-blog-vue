@@ -65,6 +65,9 @@ export default {
     }
   },
   computed: {
+    postFilter() {
+      return get(this.$site, 'pages', []).filter(page => page.type === 'post').sort(this.sortByTime)
+    },
     categoryList() {
       return Object.entries(this.$categories._metaMap).reduce((result, item) => {
         const key = item[0]
@@ -90,6 +93,9 @@ export default {
         }
         return result
       }, [])
+    },
+    cur() {
+      return this.postFilter.find(item => item.path === decodeURIComponent(this.$page.path))
     }
   }
 }
