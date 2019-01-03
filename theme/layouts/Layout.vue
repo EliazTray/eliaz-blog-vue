@@ -108,9 +108,13 @@ export default {
             }
           }
         }
+
         this._scrollbar = Scrollbar
+
         Scrollbar.use(OverscrollPlugin)
+
         this._scroll = Scrollbar.init(document.querySelector('.scroll-main'), options)
+
         this._scroll.addListener(status => {
           this.offsetProgress = (status.offset.y * 100 / status.limit.y) - 100
         })
@@ -148,6 +152,11 @@ export default {
           initQuicklink(document)
         }
       }
+    },
+    $route(to) {
+      this._scroll.scrollIntoView(document.querySelector(decodeURIComponent(to.hash)), {
+        offsetTop: -(this._scroll.containerEl.scrollTop)
+      })
     }
   }
 }
