@@ -3,6 +3,7 @@ const {
 } = require('@vuepress/shared-utils')
 
 module.exports = options => ({
+  name: 'vuepress-plugin-disqus',
   alias: {
     '@disqus': path.resolve(__dirname, 'disqus.vue')
   },

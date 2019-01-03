@@ -15,7 +15,6 @@ export default {
 
 }
 </script>
-·
 <style lang="scss">
 .home-header {
   padding: 3.5em 0;

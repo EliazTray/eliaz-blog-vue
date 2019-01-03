@@ -48,11 +48,17 @@ description: RoadMap
 
 ```html
 <template>
-  <div class="box-vue">Vue {{ message }}</div>
+  <div class="box-vue" @click="message = Math.random()">
+    Vue {{ message }}, click Me
+  </div>
 </template>
 <script>
   export default {
-    data: () => ({ message: 'Hello World' })
+    data() {
+      return {
+        message: 'Hello'
+      }
+    }
   }
 </script>
 <style>

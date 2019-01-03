@@ -2,6 +2,7 @@ const generatePost = require('./generate_post')
 
 module.exports = (options, ctx) => {
   return {
+    name: 'vuepress-plugin-words',
     // Add description
     extendPageData(page) {
       const {
