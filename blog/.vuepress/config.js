@@ -38,7 +38,7 @@ module.exports = ctx => ({
   configureWebpack: (config, isServer) => {
     return {
       resolve: {
-        // 为了让vue使用完整版的Vue，而不是默认的vue.runtime.esm.js
+        // https://vuejs.org/v2/guide/installation.html#Runtime-Compiler-vs-Runtime-only
         alias: {
           vue$: 'vue/dist/vue.esm.js'
         }

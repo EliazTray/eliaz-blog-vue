@@ -7,6 +7,7 @@
     "lint": "vue-cli-service lint",
     "dev": "vuepress dev blog --temp .temp --debug",
     "dev:debug": "node --inspect-brk ./node_modules/.bin/vuepress dev blog",
+    "build:debug": "node --inspect-brk ./node_modules/.bin/vuepress build blog",
     "lint:js": "eslint --ext .js,.vue .",
     "lint:css": "stylelint '**/*.{vue,scss}'",
     "lint:md": "prettier --write '**/*.md'",
