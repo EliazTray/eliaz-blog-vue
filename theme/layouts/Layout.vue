@@ -137,6 +137,8 @@ export default {
 
         this._scroll = Scrollbar.init(document.querySelector('.scroll-main'), options)
 
+        this.$emit('scrollPluginLoaded')
+
         this._scroll.addListener(status => {
           this.offsetProgress = (status.offset.y * 100 / status.limit.y) - 100
         })
@@ -162,13 +164,27 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    },
+    initScrollAnchor(router) {
+      if (this._scroll && router.hash) {
+        this._scroll.scrollIntoView(document.querySelector(decodeURIComponent(router.hash)), {
+          offsetTop: -this._scroll.containerEl.scrollTop
+        })
+      }
     }
   },
   watch: {
-    $route(to) {
-      this._scroll.scrollIntoView(document.querySelector(decodeURIComponent(to.hash)), {
-        offsetTop: -(this._scroll.containerEl.scrollTop)
-      })
+    $route: {
+      immediate: true,
+      handler(to) {
+        if (to.path.indexOf('.html') !== -1) {
+          return
+        }
+        this.$on('scrollPluginLoaded', () => {
+          this.initScrollAnchor(to)
+        })
+        this.initScrollAnchor(to)
+      }
     }
   }
 }
