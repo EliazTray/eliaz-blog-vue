@@ -6,15 +6,16 @@ module.exports = ctx => ({
     ['link', {res: 'manifest', href: '/manifest.json'}]
   ],
   theme: 'theme/index.js',
-  plugins: {
-    'plugin/words/word.js': true,
+  plugins: [
+    [require('../../plugin/words/index.js')],
     // 评论配置
-    'plugin/disqus/disqus.js': {
+    [require('../../plugin/disqus/index.js'), {
       disqus_config: {
         shortname: 'eliaztray'
       }
-    }
-  },
+    }],
+    ['demo-block']
+  ],
   locales: {
     '/': {
       lang: 'zh-CN',
@@ -31,6 +32,16 @@ module.exports = ctx => ({
       /* eslint camelcase: 0 */
       algoliaOptions: {
         facetFilters: []
+      }
+    }
+  },
+  configureWebpack: (config, isServer) => {
+    return {
+      resolve: {
+        // https://vuejs.org/v2/guide/installation.html#Runtime-Compiler-vs-Runtime-only
+        alias: {
+          vue$: 'vue/dist/vue.esm.js'
+        }
       }
     }
   }

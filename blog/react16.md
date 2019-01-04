@@ -254,3 +254,29 @@ vue 里面的 template, 一个不占据任何 dom 节点的的包装结构.
 - 异步代码, setTimeout 和 requestAnimationFrame
 - 服务端渲染
 - 事件处理函数(用 try catch)
+
+::: demo
+
+```html
+<template>
+  <div class="box-vue" @click="message = Math.random()">
+    Vue {{ message }}, click Me3
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        message: 'Hello'
+      }
+    }
+  }
+</script>
+<style>
+  .box-vue {
+    color: red;
+  }
+</style>
+```
+
+:::

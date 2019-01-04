@@ -12,13 +12,14 @@
       >
           <!-- 头部 -->
           <AppHeader v-if="true"/>
-
           <!-- 正文 -->
           <slot>
             <Home v-if="$frontmatter.home"></Home>
-            <Content v-else-if="$page.key" :page-key="$page.key"></Content>
+            <Post v-else-if="$page.key" :page-key="$page.key"></Post>
           </slot>
           <!-- back-to-top -->
+          <PostNav v-if="isArticle"></PostNav>
+          <Comments v-if="isArticle"></Comments>
           <!-- 底部 -->
           <AppFooter v-if="true"/>
       </div>
@@ -30,16 +31,35 @@
 import Vue from 'vue'
 import nprogress from 'nprogress'
 import initQuicklink from '../utils/quicklink.js'
+// 如果直接使用glolbal-components注册的组件，在根组件 mounted & updated 时，这些组件都还没有 mounted 在dom上，这样会造成多大的问题，我不说你都懂吧...
+import AppHeader from '../global-components/AppHeader.vue'
+import AppFooter from '../global-components/AppFooter.vue'
+import PostNav from '../global-components/PostNav.vue'
+import Comments from '../global-components/Comments.vue'
+import Home from '../global-components/Home.vue'
+import Post from '@vuepress/core/lib/app/components/Content.js'
 
 export default {
+  components: {
+    AppHeader,
+    AppFooter,
+    PostNav,
+    Comments,
+    Home,
+    Post
+  },
   computed: {
     pageClasses() {
       const userPageClass = this.$page.frontmatter.pageClass
       return [userPageClass]
     },
-    contentMounted() {
-      return this.$vuepress.$get('contentMounted')
+    disableScrollBehavior() {
+      return this.$vuepress.$get('disableScrollBehavior')
+    },
+    isArticle() {
+      return ['post', 'page'].includes(this.$page.type) && !this.$frontmatter.home
     }
+
   },
   data() {
     return {
@@ -64,6 +84,8 @@ export default {
 
     this.registerSmoothScroll()
     this.registerScrollReveal()
+
+    initQuicklink(document)
   },
 
   beforeDestroy() {
@@ -143,16 +165,6 @@ export default {
     }
   },
   watch: {
-    // 当文章加载完成时, 调用qiucklink
-    contentMounted: {
-      immediate: true,
-      handler(val) {
-        console.log(val, 'contentloaded')
-        if (val === true) {
-          initQuicklink(document)
-        }
-      }
-    },
     $route(to) {
       this._scroll.scrollIntoView(document.querySelector(decodeURIComponent(to.hash)), {
         offsetTop: -(this._scroll.containerEl.scrollTop)

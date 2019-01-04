@@ -121,3 +121,29 @@ const observer = new IntersectionObserver(entries => {
 <!-- https://github.com/GoogleChromeLabs/quicklink -->
 <!-- https://w3c.github.io/IntersectionObserver/#intersection-observer-private-slots -->
 <!-- http://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html -->
+
+::: demo
+
+```html
+<template>
+  <div class="box-vue" @click="message = Math.random()">
+    Vue {{ message }}, click Me2
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        message: 'Hello'
+      }
+    }
+  }
+</script>
+<style>
+  .box-vue {
+    color: red;
+  }
+</style>
+```
+
+:::
