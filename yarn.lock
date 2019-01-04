@@ -10478,10 +10478,10 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress-plugin-demo-block@^0.3.4:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-demo-block/-/vuepress-plugin-demo-block-0.3.4.tgz#8e4a88bdac1f9d29a56701a1ed1711045ec14945"
-  integrity sha512-X6+N+CPruZsjy4/7jwB7EAhzLl1yvbcl3X0SX6jKj8SRDiE/VfqZOpPFoRFGwBhyEYuijo8Bb8Dn6Du5W3MbKw==
+vuepress-plugin-demo-block@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-demo-block/-/vuepress-plugin-demo-block-0.3.5.tgz#a7eb94266ce65cd8465e485c7f7569df08285d1b"
+  integrity sha512-uy706oiZshTnlFuvyVxn0JfXbfzvnSjRjvs96sn+yzHJngBpFtlioaNiYhSScUE93yTe7o7ugbbbMK3X9GukxA==
 
 vuepress@^1.0.0-alpha.30:
   version "1.0.0-alpha.30"

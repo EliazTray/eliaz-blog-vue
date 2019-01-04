@@ -14,7 +14,7 @@ module.exports = ctx => ({
         shortname: 'eliaztray'
       }
     }],
-    [require('../../plugin/demo-block/index.js')]
+    ['demo-block']
   ],
   locales: {
     '/': {

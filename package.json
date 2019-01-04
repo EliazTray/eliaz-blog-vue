@@ -64,7 +64,7 @@
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.17",
     "vuepress": "^1.0.0-alpha.30",
-    "vuepress-plugin-demo-block": "^0.3.4"
+    "vuepress-plugin-demo-block": "^0.3.5"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
